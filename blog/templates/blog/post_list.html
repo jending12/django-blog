@@ -1,35 +1,13 @@
-<html>
-  <head>
-    <title> Jennifer's Blog </title>
-  </head>
-  <body>
-      <div>
-        <h1> <a href="http://127.0.0.1:8000/">Welcome to Jennnifer's Blog</a></h1>
-      </div>
+{% extends 'blog/base.html' %}
 
-      <div>
-        <h2> About Me </h2>
-          <p>My name is <strong>Jennifer Ding</strong>. I'm a 23 year old entrepreneur based in Portland, Oregon.</p>
-        <h2> Fun Facts </h2>
-          <p>I'm originally from Texas and graduated from <em><a href="http://www.rice.edu/">Rice University</a></em> in 2015.
-            Computer Vision, Machine Learning, and Big Data are the focus of my work interests right now.
-            But I also love all things food, yoga/meditation, acoustic guitar, and <em><strong>corgis! </strong></em> </p>
-        <h2> Coding Languages </h2>
-          <p> The languages I've worked with include: </p>
-            <ul><li>MATLAB</li><li>Python</li><li>C</li><li>Java</li></ul>
-
-      </div>
-
-      <div>
-        <h1>Blog Posts</h1>
-      </div>
-
-      {% for post in posts %}
-        <div>
-          <h2><a href="">{{ post.title }}</a></h2>
+{% block content %}
+  {% for post in posts %}
+      <div class="post">
+          <div class="date">
+              <p>published: {{ post.published_date }}</p>
+          </div>
+          <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
           <p>{{ post.text|linebreaksbr }}</p>
-          <p>published: {{ post.published_date }} </p>
-        </div>
-      {% endfor %}
-  </body>
-</html>
+      </div>
+  {% endfor %}
+{% endblock %}

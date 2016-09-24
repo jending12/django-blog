@@ -1,0 +1,42 @@
+{% load staticfiles %}
+<html>
+  <head>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <title> Jennifer's Blog </title>
+  </head>
+
+  <div class="page-header">
+    <h1> <a href="">Welcome to Jennifer's Blog</a></h1>
+  </div>
+
+  <body>
+    <div>
+      <h2>About Me</h2>
+        <p>My name is <strong>Jennifer Ding</strong>. I'm a 23 year old entrepreneur based in Portland, Oregon.</p>
+      <h2>Fun Facts</h2>
+        <p>I'm originally from Texas and graduated from <em><a href="http://www.rice.edu/">Rice University</a></em> in 2015.
+          Computer Vision, Machine Learning, and Big Data are the focus of my work interests right now.
+          But I also love all things food, yoga/meditation, acoustic guitar, and <em><strong>corgis! </strong></em> </p>
+      <h2>Coding Languages</h2>
+        <p> The languages I've worked with include: </p>
+          <ul><li>MATLAB</li><li>Python</li><li>C</li></ul>
+
+    </div>
+
+    <div class="page-header">
+        <h1><a href="/">Blog Posts</a></h1>
+    </div>
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+            {% block content %}
+            {% endblock %}
+            </div>
+        </div>
+    </div>
+
+  </body>
+</html>
