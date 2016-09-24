@@ -8,11 +8,14 @@
     <title> Jennifer's Blog </title>
   </head>
 
-  <div class="page-header">
-    <h1> <a href="">Welcome to Jennifer's Blog</a></h1>
-  </div>
-
   <body>
+    <div class="page-header">
+      {% if user.is_authenticated %}
+        <a href="{% url 'post_new' %}" class="top-menu"><span class = "glyphicon glyphicon-plus"></span></a>
+      {% endif %}
+      <h1> <a href="">Welcome to Jennifer's Blog</a></h1>
+    </div>
+
     <div>
       <h2>About Me</h2>
         <p>My name is <strong>Jennifer Ding</strong>. I'm a 23 year old entrepreneur based in Portland, Oregon.</p>
